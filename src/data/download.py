@@ -9,6 +9,12 @@ request = {
         "skin_temperature",
         "snow_depth",
         "snowfall",
+        "volumetric_soil_water_layer_1",
+        "surface_latent_heat_flux",
+        "surface_net_solar_radiation",
+        "surface_sensible_heat_flux",
+        "10m_u_component_of_wind",
+        "10m_v_component_of_wind",
         "total_precipitation"
     ],
     "year": [
@@ -34,4 +40,4 @@ request = {
 }
 
 client = cdsapi.Client()
-client.retrieve(dataset, request, "data/dataset.zip")
+client.retrieve(dataset, request, "data/dataset_new.zip")
