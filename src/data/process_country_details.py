@@ -6,7 +6,6 @@ import pygrib
 import geopandas as gpd
 from shapely import Point
 from tqdm import tqdm
-from collections import defaultdict
 
 # --- Configuration ---
 CACHE_DIR = "data/processed/countries"
@@ -115,7 +114,7 @@ if __name__ == "__main__":
 
     grbs = pygrib.open(args.data_path)
 
-    # 1. Setup Grid (Downsampled)
+    # 1. Setup Map
     first = grbs.message(1)
     lats_full, lons_full = first.latlons()
 
@@ -127,8 +126,6 @@ if __name__ == "__main__":
 
     buffer = []
     curr_time = None
-
-    # Dictionary of open file handles: {'USA': file_object, ...}
     open_files = {}
 
     try:
@@ -146,9 +143,7 @@ if __name__ == "__main__":
             process_buffer_to_files(buffer, iso_map, lats_small, lons_small, open_files)
 
     finally:
-        # Close all file handles
-        print("Closing file handles...")
         for f in open_files.values():
             f.close()
 
-    print("Country details processing complete.")
+    print("Processing complete.")
