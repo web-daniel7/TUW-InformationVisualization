@@ -10,4 +10,4 @@ wheels/
 .venv
 .idea
 /data/*
-!/data/country_variable_averages.csv
+!/data/processed/
