@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Climate Visualization</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside id="filters">
+            <h3>Climate Variables</h3>
+            <div id="variable-checkboxes"></div>
+            <hr>
+            <div id="active-info">
+                <small>Primary Variable: <b id="current-var-display">2t</b></small>
+            </div>
+        </aside>
+
+        <main id="viz-area">
+            <div id="map-container"></div>
+            <div id="pc-container" style="display:none;"></div>
+            <div id="line-container" style="display:none;"></div>
+        </main>
+    </div>
+
+    <script src="js/worldMap.js"></script>
+    <script src="js/historyChart.js"></script>
+    <script src="js/pcPlot.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
